@@ -1,0 +1,163 @@
+/* И замените на: */
+:root {
+  --bg-primary: #1a1a1a;       /* Основной фон */
+  --bg-secondary: #2d2d2d;     /* Фон карточек */
+  --text-primary: #e0e0e0;     /* Цвет текста */
+  --progress-bg: #404040;      /* Фон прогресс-бара */
+  --shadow-color: rgba(0,0,0,0.3); /* Тени */
+  --accent-color: #6fcf97;     /* Акцентный цвет */
+}
+/* ===== Projects Grid Layout ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #070605;
+  min-height: 100vh;
+}
+/* Добавьте эти стили */
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.progress-text {
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.project-tile {
+  transition: transform 0.3s ease;
+}
+
+.project-tile:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== Project Tile Styles ===== */
+.project-tile {
+  background: #000000;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(20, 20, 20, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.project-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* ===== Image Container ===== */
+.poster-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: #161310;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+/* ===== Content Styles ===== */
+.project-title {
+  margin: 1.2rem 0;
+  font: 500 1.3rem/1.2 'Segoe UI', sans-serif;
+  color: #D2CBC9;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* ===== Progress Bar System ===== */
+.progress-container {
+  width: 85%;
+  height: 8px;
+  background: #161310;
+  border-radius: 4px;
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50 0%, #45a049 100%);
+  border-radius: 4px;
+  transition: width 0.5s ease, background 0.3s ease;
+}
+
+.progress-text {
+  position: absolute;
+  top: -26px;
+  right: -2px;
+  font: 600 0.9rem/1 'Segoe UI', sans-serif;
+  color: #45a049;
+  background: rgba(255,255,255,0.9);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ===== Mobile Optimization ===== */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .poster-container {
+    height: 180px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .progress-container {
+    width: 90%;
+    margin-bottom: 1.2rem;
+  }
+}
+
+/* ===== Additional Effects ===== */
+@media (hover: hover) {
+  .poster:hover {
+    opacity: 0.9;
+  }
+}
+
+/* ===== Print Optimization ===== */
+@media print {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+    box-shadow: none;
+    background: transparent;
+  }
+  
+  .project-tile {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+
+}
